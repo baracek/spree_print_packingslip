@@ -1,3 +1,5 @@
 Rails.application.routes.draw do
-  match "admin/shipment/packingslip/:id" => "admin/shipments#packingslip"
+  map.namespace :admin do |admin|
+    admin.resources :shipments, :member => { :packingslip => :get }
+  end
 end
