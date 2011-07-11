@@ -76,7 +76,7 @@ end
 pdf.move_down 30
 
 # Line Items
-pdf.bounding_box [0,cursor], :width => 540, :height => 450 do
+pdf.bounding_box [0, pdf.cursor], :width => 540, :height => 450 do
   pdf.move_down 2
   data =  [[Prawn::Table::Cell.new( :text => "SKU", :font_style => :bold),
                 Prawn::Table::Cell.new( :text =>"Item Description", :font_style => :bold ),
@@ -96,7 +96,7 @@ pdf.bounding_box [0,cursor], :width => 540, :height => 450 do
   pdf.horizontal_rule
   pdf.move_down 2
 
-  pdf.bounding_box [0,cursor], :width => 540 do
+  pdf.bounding_box [0, pdf.cursor], :width => 540 do
     pdf.move_down 2
     data2 = []
     @shipment.line_items.each do |line_item|
