@@ -129,7 +129,7 @@ pdf.bounding_box [0, pdf.cursor], :width => 540, :height => 450 do
 end
 
 # Footer
-repeat :all do
+pdf.repeat :all do
   footer_message = <<EOS
 Shipping is not refundable. | Special orders are non-refundable.
 In order to return a product prior authorization with a RMA number is mandatory
