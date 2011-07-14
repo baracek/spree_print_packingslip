@@ -89,7 +89,7 @@ pdf.bounding_box [0, pdf.cursor], :width => 540, :height => 450 do
     :vertical_padding   => 2,
     :horizontal_padding => 6,
     :font_size => 9,
-    :column_widths => { 0 => 75, 1 => 400, 2 => 65 } ,
+    :column_widths => { 0 => 125, 1 => 350, 2 => 65 } ,
     :align => { 0 => :left, 1 => :left, 2 => :right }
 
   pdf.move_down 4
@@ -100,7 +100,7 @@ pdf.bounding_box [0, pdf.cursor], :width => 540, :height => 450 do
     pdf.move_down 2
     data2 = []
     @shipment.line_items.each do |line_item|
-      data2 << [line_item.variant.product.sku,
+      data2 << [line_item.variant.respond_to?('sku') ? line_item.variant.sku : line_item.variant.product.sku,
                 line_item.variant.product.name,
                 @shipment.count_inventory_units( line_item.variant )]
     end
@@ -112,7 +112,7 @@ pdf.bounding_box [0, pdf.cursor], :width => 540, :height => 450 do
       :vertical_padding   => 5,
       :horizontal_padding => 6,
       :font_size => 9,
-      :column_widths => { 0 => 75, 1 => 400, 2 => 65 },
+      :column_widths => { 0 => 125, 1 => 350, 2 => 65 },
       :align => { 0 => :left, 1 => :left, 2 => :right }
   end
 
